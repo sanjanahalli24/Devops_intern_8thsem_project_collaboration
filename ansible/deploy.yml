@@ -1,0 +1,15 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: Pull Docker image
+      docker_image:
+        name: devops-collab-app
+        source: local
+
+    - name: Run the container
+      docker_container:
+        name: devops_app
+        image: devops-collab-app
+        state: started
+        ports:
+          - "5000:5000"

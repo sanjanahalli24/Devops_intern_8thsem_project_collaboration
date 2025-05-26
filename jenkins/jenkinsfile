@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/YOUR-USERNAME/devops-collab.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t devops-collab-app ./app'
+            }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+                sh 'echo "No tests defined yet."'
+            }
+        }
+
+        stage('Deploy using Ansible') {
+            steps {
+                sh 'ansible-playbook -i "localhost," ansible/deploy.yml --connection=local'
+            }
+        }
+    }
+}
