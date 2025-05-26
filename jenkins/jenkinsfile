@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/YOUR-USERNAME/devops-collab.git'
+                git 'https://github.com/sanjanahalli24/Devops_intern_8thsem_project_collaboration.git'
             }
         }
 
@@ -14,16 +14,10 @@ pipeline {
             }
         }
 
-        stage('Run Unit Tests') {
-            steps {
-                sh 'echo "No tests defined yet."'
-            }
+        
         }
 
-        stage('Deploy using Ansible') {
-            steps {
-                sh 'ansible-playbook -i "localhost," ansible/deploy.yml --connection=local'
-            }
+        
         }
     }
 }
